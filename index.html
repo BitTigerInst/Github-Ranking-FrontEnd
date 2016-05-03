@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html ng-app="ranking_board">
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>太阁榜</title>
+
+    <link rel='shortcut icon' href='favicon.ico' type='image/x-icon' />
+
+    <!-- firebase -->
+    <script src="https://cdn.firebase.com/js/client/2.4.2/firebase.js"></script>
+
+    <script src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous"></script>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+    <!-- AngularJS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+
+    <!-- ChartJS -->
+    <script src="chart.js"></script>
+
+    <!-- Angular Chart -->
+    <script src="angular-chart/angular-chart.js"></script>
+    <link rel="stylesheet" href="angular-chart/angular-chart.css">
+
+    <script src="app.js"></script>
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="css/footer-basic-centered.css">
+
+</head>
+
+<body ng-controller="main_controller">
+
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">
+                    <img alt="Brand" src="favicon.ico" , width="25px">
+                </a>
+                <p class="navbar-text">太阁风云榜</p>
+
+            </div>
+        </div>
+    </nav>
+
+    <div class='container'>
+
+        <div class='row'>
+            <div class='col-lg-12'>
+
+                <div class='bs-component'>
+                    <div class='jumbotron'>
+                        <h1>太阁风云榜</h1>
+                        <p>
+                            GitHub activity ranking for users and repositories.
+                        </p>
+                        <br>
+                        <div class='row'>
+                            <div class='form-group col-md-6'>
+                                <div class="dropdown">
+                                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                        {{ order }}
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                        <li ng-repeat="pattern in order_patterns"><a ng-click="dropboxitemselected(pattern)">{{pattern}}</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <list_update_info>Updated at: {{list_created_time}}</list_update_info>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="app-container">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Total</th>
+                        <th>Push</th>
+                        <th>PR</th>
+                        <th>Create</th>
+                        <th>Fork</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="member in members | orderBy:'-'+order">
+                        <td>{{ $index + 1 }}</td>
+                        <td><img ng-src="{{member.avatar_url}}" height="35px" style="margin-right: 10px"><a ng-href="{{member.html_url}}"> {{ member.login }}</a></td>
+                        <td>{{ member.Total }}</td>
+                        <td>{{ member.PushEvent }}</td>
+                        <td>{{ member.PullRequestEvent }}</td>
+                        <td>{{ member.CreateEvent }}</td>
+                        <td>{{ member.ForkEvent }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <footer class="footer-basic-centered">
+
+        <p class="footer-company-name">All Rights Reserved ©2016 BitTiger, Inc.</p>
+
+    </footer>
+</body>
+
+</html>
