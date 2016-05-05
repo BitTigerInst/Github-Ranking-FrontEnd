@@ -32,6 +32,15 @@ app.controller('main_controller', ['$scope', function ($scope) {
         console.log("New Order: " + $scope.order);
     }
 
+
+    $scope.checkOrganization = function (member) {
+        //        if (member['organization'] == 'top_coders') {
+        //            console.log(member);
+        //            return 'success';
+        //        }
+        return 'success';
+    }
+
     bootstrap_alert = function (message) {
 
         angular.element('#alert_placeholder').html('<div class="alert alert-success" id="success-alert"><button type="button" class="close" data-dismiss="alert">x</button><strong>Updated! </strong> Ranking has been updated at ' + $scope.list_created_time + ' LoL</div>');

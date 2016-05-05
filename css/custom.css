@@ -10,3 +10,22 @@ list_update_info {
     font-style: italic;
     font-size: 85%;
 }
+
+th {
+    text-align: center;
+}
+
+td {
+    vertical-align: middle;
+    color: dimgrey;
+}
+
+td.medal {
+    width: 35px;
+}
+
+@media only screen and (max-width: 992px) {
+    img.big_logo {
+        height: 125px;
+    }
+}
