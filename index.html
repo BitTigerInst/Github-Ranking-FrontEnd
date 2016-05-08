@@ -57,8 +57,7 @@
 
                 <div class='bs-component'>
                     <div class='jumbotron'>
-                        <h1>太阁<b>极客榜</b></h1> <img class="big_logo" height="250px" ng-src="./resource/coc.png" style="position: absolute; top: 10px;
-right: 10px;">
+                        <h1>太阁<b>极客榜</b></h1><img class="big_logo" height="250px" ng-src="./resource/coc.png" style="position: absolute; top: 10px; right: 10px;">
                         <p>
                             <b><i>Top 25</i></b> Github geeks!
                         </p>
@@ -77,6 +76,24 @@ right: 10px;">
                         </div>
 
                         <list_update_info>Updated at: {{list_created_time}}</list_update_info>
+                        <a class="typcn typcn-document-text" data-toggle="modal" data-target="#myModal"></a>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="myModal" role="dialog">
+                            <div class="modal-dialog">
+                                <!-- Modal content-->
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        <h4 class="modal-title">How it works?</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p style="font-size: 100%">The results are based on BitTiger members' Github activities in the past seven days with daily updates at <b>6:00</b> and <b>18:00 PDT</b>. Happy hacking!</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -105,17 +122,17 @@ right: 10px;">
 
                             <div>
                                 <b><i>{{ $index + 1 }}.</i></b>
-                                <span ng-if="member.ranking_change < 0" class="typcn typcn-arrow-up-thick" style="font-size: 70%; color:#2E7D32; padding: 5px;"><b>{{ -member.ranking_change }}</b></span>
-                                <span ng-if="member.ranking_change == 0" class="typcn typcn-equals" style="font-size: 70%; color:#FFB300; padding: 5px;"></span>
-                                <span ng-if="member.ranking_change > 0" class="typcn typcn-arrow-down-thick" style="font-size: 70%; color:#B71C1C; padding: 5px;"><b>{{ member.ranking_change }}</b></span>
-                                <span ng-if="member.ranking_change=='new'" style="font-size: 70%; color:#2196F3; padding: 5px;"><b>new</b></span>
+                                <span ng-if="member.ranking_change < 0 && order == 'Total'" class="typcn typcn-arrow-up-thick" style="font-size: 70%; color:#2E7D32; padding: 5px;"><b>{{ -member.ranking_change }}</b></span>
+                                <span ng-if="member.ranking_change == 0 && order == 'Total'" class="typcn typcn-equals" style="font-size: 70%; color:#FFB300; padding: 5px;"></span>
+                                <span ng-if="member.ranking_change > 0 && order == 'Total'" class="typcn typcn-arrow-down-thick" style="font-size: 70%; color:#B71C1C; padding: 5px;"><b>{{ member.ranking_change }}</b></span>
+                                <span ng-if="member.ranking_change=='new' && order == 'Total'" style="font-size: 70%; color:#2196F3; padding: 5px;"><b>new</b></span>
                             </div>
                         </td>
 
                         <td><img ng-src="{{member.avatar_url}}" height="35px" style="margin-right: 10px"><a ng-href="{{member.html_url}}"> {{ member.login }}</a></td>
                         <td class="medal" ng-if="member.Total>=100" style="vertical-align: middle;"><img ng-src="./resource/champion.png" height="30px" align="center"></td>
                         <td class="medal" ng-if="member.Total>=50 && member.Total<100" style="vertical-align: middle;"><img ng-src="./resource/gold.png" height="35px" align="center"></td>
-                        <td class="medal" ng-if="member.Total<50 && member.Total>20" style="vertical-align: middle;"><img ng-src="./resource/silver.png" height="30px" align="center"></td>
+                        <td class="medal" ng-if="member.Total>=20 && member.Total<50" style="vertical-align: middle;"><img ng-src="./resource/silver.png" height="30px" align="center"></td>
                         <td class="medal" ng-if="member.Total<20" style="vertical-align: middle;"><img ng-src="./resource/bronze.png" height="30px" align="center"></td>
                         <td align="center" style="vertical-align: middle;"><b>{{ member.Total }}</b></td>
                         <td align="center" style="vertical-align: middle;">{{ member.PushEvent }}</td>
