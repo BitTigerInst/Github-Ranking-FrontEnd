@@ -24,7 +24,11 @@ td.medal {
     width: 35px;
 }
 
-@media only screen and (max-width: 992px) {
+.jumbotron {
+    background-color: #F4E6CB;
+}
+
+@media only screen and (max-width: 765px) {
     img.big_logo {
         height: 125px;
     }
