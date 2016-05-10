@@ -2,8 +2,9 @@
 
 **太阁极客榜**（or **BitTiger Geeks Ranking**）is a real-time ranking board for BitTiger's Github members. Its results are based on members' Github activities in the past seven days with daily updates at **06:30 PDT**.
 
-**Demo**: https://bittiger-ranking.firebaseapp.com/
+**Demo**: https://bittiger-ranking.firebaseapp.com
 
+![](./screenshot.png)
 
 ## Motivation
 To dynmically show the members' activities ranking in BitTiger's Github organization account. The final goal is to help its github members grow their interests and get more engaged in coding.
