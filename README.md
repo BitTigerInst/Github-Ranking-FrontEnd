@@ -99,11 +99,14 @@ We adopt [**Clash of Clans**](supercell.com/en/games/clashofclans/)'s medal syst
 >**Note:** If you are **Super Cell** and feel unhappy about how your lovely medal icons are used here, please just let me know. I'm more than happy to change them.
 
 
-## Team
-
+## Team Members
+||
+|:--:|
+|![Cosmo](http://i.imgur.com/m9UhjwU.jpg)|
+|[Cosmo](https://github.com/hackjustu)|
 
 ## License
-MIT © [hackjustu](https://github.com/hackjustu)
+MIT © [Cosmo](https://github.com/hackjustu)
 
 ## Repository information
 - category: full stack
