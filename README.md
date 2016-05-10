@@ -4,10 +4,10 @@
 
 **Demo**: https://bittiger-ranking.firebaseapp.com
 
-![](./screenshot.png)
+![Screenshots](./screenshot.png)
 
 ## Motivation
-To dynmically show the members' activities ranking in BitTiger's Github organization account. The final goal is to help its github members grow their interests and get more engaged in coding.
+By showing the Github members' activities in a game-style ranking board,  we can finally help the github members grow their interests and get more engaged in coding.
 
 > We intentionally introduce some [top coders](https://github.com/hackjustu/Github-Project-Dashboard/blob/dev/helpers/top_coders.js) in our ranking board just to have more fun;)
 
