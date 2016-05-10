@@ -24,6 +24,32 @@ td.medal {
     width: 35px;
 }
 
+index {
+    padding-left: 8px;
+    padding-right: 5px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    border-radius: 3px;
+}
+
+index.first {
+    background-color: #FFD700;
+    color: aliceblue;
+    text-shadow: 2px 2px 8px #D28C47;
+}
+
+index.second {
+    background-color: #E0E0E0;
+    color: aliceblue;
+    text-shadow: 2px 2px 8px #263238;
+}
+
+index.third {
+    background-color: #D28C47;
+    color: aliceblue;
+    text-shadow: 2px 2px 8px #263238;
+}
+
 .jumbotron {
     background-color: #F4E6CB;
 }

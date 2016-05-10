@@ -138,11 +138,11 @@
                         <td align="left" style="vertical-align: middle;">
 
                             <div>
-                                <b><i>{{ $index + 1 }}.</i></b>
-                                <span ng-if="member.ranking_change < 0 && order == 'Total'" class="typcn typcn-arrow-up-thick" style="font-size: 70%; color:#2E7D32; padding: 5px;"><b>{{ -member.ranking_change }}</b></span>
-                                <span ng-if="member.ranking_change == 0 && order == 'Total'" class="typcn typcn-equals" style="font-size: 70%; color:#FFB300; padding: 5px;"></span>
-                                <span ng-if="member.ranking_change > 0 && order == 'Total'" class="typcn typcn-arrow-down-thick" style="font-size: 70%; color:#B71C1C; padding: 5px;"><b>{{ member.ranking_change }}</b></span>
-                                <span ng-if="member.ranking_change=='new' && order == 'Total'" style="font-size: 70%; color:#2196F3; padding: 5px;"><b>new</b></span>
+                                <index ng-class="{ 'first' : $index==0, 'second' : $index==1, 'third' : $index==2 }"><b><i>{{ $index + 1 }}.</i></b></index>
+                                <span ng-if=" member.ranking_change < 0 && order=='Total' " class="typcn typcn-arrow-up-thick " style="font-size: 70%; color:#2E7D32; padding-left: 2px;"><b>{{ -member.ranking_change }}</b></span>
+                                <span ng-if="member.ranking_change==0 && order=='Total' " class="typcn typcn-equals " style="font-size: 70%; color:#FFB300; padding-left: 2px;"></span>
+                                <span ng-if="member.ranking_change> 0 && order == 'Total'" class="typcn typcn-arrow-down-thick" style="font-size: 70%; color:#B71C1C; padding-left: 2px;"><b>{{ member.ranking_change }}</b></span>
+                                <span ng-if="member.ranking_change=='new' && order == 'Total'" style="font-size: 70%; color:#2196F3; padding-left: 2px;"><b>new</b></span>
                             </div>
                         </td>
 
