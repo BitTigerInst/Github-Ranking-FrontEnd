@@ -4,6 +4,12 @@
 <head lang="en">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- testing for social sharing -->
+    <meta property="og:image" content="./resource/viking.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="200">
+    <meta property="og:image:height" content="200">
+
     <title>太阁极客榜</title>
 
     <link rel='shortcut icon' href='favicon.ico' type='image/x-icon' />
@@ -38,17 +44,22 @@
 
 <body ng-controller="main_controller">
 
-    <nav class="navbar navbar-inverse">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="#">
-                    <img alt="Brand" src="favicon.ico" , width="25px">
-                </a>
-                <p class="navbar-text">太阁极客榜</p>
+    <div style="background-color:#292c2f; height: 25px; margin-bottom: 20px"></div>
 
-            </div>
+    <!--
+<nav class="navbar navbar-inverse">
+
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">
+                <img alt="Brand" src="favicon.ico" , width="25px">
+            </a>
+            <p class="navbar-text">太阁极客榜</p>
         </div>
-    </nav>
+    </div>
+
+</nav>
+-->
 
     <div class='container'>
 
@@ -57,8 +68,11 @@
 
                 <div class='bs-component'>
                     <div class='jumbotron'>
-                        <h1>太阁<b>极客榜</b></h1> <img class="big_logo" height="250px" ng-src="./resource/coc.png" style="position: absolute; top: 10px;
-right: 10px;">
+                        <h1>太阁<b>极客榜</b></h1>
+                        <figure style="position: absolute; top: 10px; right: 30px;">
+                            <img class="big_logo" height="265px" ng-src="./resource/viking.png">
+                            <figcaption style="font-size:40%; text-align:right"><a href="http://www.freepik.com"><i>Designed by Freepik</i></a></figcaption>
+                        </figure>
                         <p>
                             <b><i>Top 25</i></b> Github geeks!
                         </p>
@@ -75,8 +89,28 @@ right: 10px;">
                                 </div>
                             </div>
                         </div>
-
                         <list_update_info>Updated at: {{list_created_time}}</list_update_info>
+                        <a class="typcn typcn-document-text" data-toggle="modal" data-target="#myModal"></a>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="myModal" role="dialog">
+                            <div class="modal-dialog">
+                                <!-- Modal content-->
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        <h4 class="modal-title">About</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p style="font-size: 100%"><i>太阁极客榜</i> is a ranking board for BitTiger members. Its results are based on members' Github activities in the past seven days with daily updates at <b>06:30 PDT</b>.
+                                            <br>
+                                            <br>Happy hacking!</p>
+                                        <p style="font-size: 50%">* We introduce some top coders in our ranking board to make it more funny.</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -104,18 +138,18 @@ right: 10px;">
                         <td align="left" style="vertical-align: middle;">
 
                             <div>
-                                <b><i>{{ $index + 1 }}.</i></b>
-                                <span ng-if="member.ranking_change < 0" class="typcn typcn-arrow-up-thick" style="font-size: 70%; color:#2E7D32; padding: 5px;"><b>{{ -member.ranking_change }}</b></span>
-                                <span ng-if="member.ranking_change == 0" class="typcn typcn-equals" style="font-size: 70%; color:#FFB300; padding: 5px;"></span>
-                                <span ng-if="member.ranking_change > 0" class="typcn typcn-arrow-down-thick" style="font-size: 70%; color:#B71C1C; padding: 5px;"><b>{{ member.ranking_change }}</b></span>
-                                <span ng-if="member.ranking_change=='new'" style="font-size: 70%; color:#2196F3; padding: 5px;"><b>new</b></span>
+                                <index ng-class="{ 'first' : $index==0, 'second' : $index==1, 'third' : $index==2 }"><b><i>{{ $index + 1 }}.</i></b></index>
+                                <span ng-if=" member.ranking_change < 0 && order=='Total' " class="typcn typcn-arrow-up-thick " style="font-size: 70%; color:#2E7D32; padding-left: 2px;"><b>{{ -member.ranking_change }}</b></span>
+                                <span ng-if="member.ranking_change==0 && order=='Total' " class="typcn typcn-equals " style="font-size: 70%; color:#FFB300; padding-left: 2px;"></span>
+                                <span ng-if="member.ranking_change> 0 && order == 'Total'" class="typcn typcn-arrow-down-thick" style="font-size: 70%; color:#B71C1C; padding-left: 2px;"><b>{{ member.ranking_change }}</b></span>
+                                <span ng-if="member.ranking_change=='new' && order == 'Total'" style="font-size: 70%; color:#2196F3; padding-left: 2px;"><b>new</b></span>
                             </div>
                         </td>
 
                         <td><img ng-src="{{member.avatar_url}}" height="35px" style="margin-right: 10px"><a ng-href="{{member.html_url}}"> {{ member.login }}</a></td>
                         <td class="medal" ng-if="member.Total>=100" style="vertical-align: middle;"><img ng-src="./resource/champion.png" height="30px" align="center"></td>
                         <td class="medal" ng-if="member.Total>=50 && member.Total<100" style="vertical-align: middle;"><img ng-src="./resource/gold.png" height="35px" align="center"></td>
-                        <td class="medal" ng-if="member.Total<50 && member.Total>20" style="vertical-align: middle;"><img ng-src="./resource/silver.png" height="30px" align="center"></td>
+                        <td class="medal" ng-if="member.Total>=20 && member.Total<50" style="vertical-align: middle;"><img ng-src="./resource/silver.png" height="30px" align="center"></td>
                         <td class="medal" ng-if="member.Total<20" style="vertical-align: middle;"><img ng-src="./resource/bronze.png" height="30px" align="center"></td>
                         <td align="center" style="vertical-align: middle;"><b>{{ member.Total }}</b></td>
                         <td align="center" style="vertical-align: middle;">{{ member.PushEvent }}</td>
