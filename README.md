@@ -2,13 +2,16 @@
 
 **太阁极客榜**（or **BitTiger Geeks Ranking**）is a real-time ranking board for BitTiger's Github members. Its results are based on members' Github activities in the past seven days with daily updates at **06:30 PDT**.
 
+**Demo**: https://bittiger-ranking.firebaseapp.com/
+
+## Components
 This project consists of three components: 
 
 1.  A crawler digs members' public data and calculates their rankings. The results is stored in the persistence layer mentioned below.
 2.  A Firebase-powered persistence layer.
-3.  A single-page web app shows members' rankings from the persistence layer.
+3.  A front-end single-page app shows members' rankings from the persistence layer.
 
-> **This repository is for the front-end app showing members' rankings.** Click here if you are interested in the crawler part.
+> **This repository is for the front-end app.** Click [here](https://github.com/hackjustu/Github-Project-Dashboard) if you are interested in the crawler app.
 
 ## Usage
 A static web sever should be enough to launch this web app. Please use `index.html` as the [webserver directory index page](https://en.wikipedia.org/wiki/Webserver_directory_index).
@@ -77,7 +80,7 @@ We compare `Total`, `PushEvent`, `PullRequestEvent`, `CreateEvent` and `ForkEven
 Users can sort the members by other order such as just `PushEvent` or `ForkEvent`, but we use the ranking of `Total` for our medal system in the next section.
 
 ## Medal System
-We adopt Clash of Clans's medal system for fun, beacasue I'm its big fan~~
+We adopt [**Clash of Clans**](supercell.com/en/games/clashofclans/)'s medal system for fun, beacasue we love the game~~
 
 | Medal     | Icon |   Scores (Total) |
 | :--------:| :--: | :--------:| 
