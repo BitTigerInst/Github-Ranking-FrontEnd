@@ -4,6 +4,12 @@
 
 **Demo**: https://bittiger-ranking.firebaseapp.com/
 
+
+## Motivation
+To dynmically show the members' activities ranking in BitTiger's Github organization account. The final goal is to help its github members grow their interests and get more engaged in coding.
+
+> We intentionally introduce some [top coders](https://github.com/hackjustu/Github-Project-Dashboard/blob/dev/helpers/top_coders.js) in our ranking board just to have more fun;)
+
 ## Components
 This project consists of three components: 
 
@@ -11,7 +17,7 @@ This project consists of three components:
 2.  A Firebase-powered persistence layer.
 3.  A front-end single-page app shows members' rankings from the persistence layer.
 
-> **This repository is for the front-end app.** Click [here](https://github.com/hackjustu/Github-Project-Dashboard) if you are interested in the crawler app.
+> **This repository is for the front-end app.** Click [here](https://github.com/hackjustu/Github-Project-Dashboard) to see the crawler app.
 
 ## Usage
 A static web sever should be enough to launch this web app. Please use `index.html` as the [webserver directory index page](https://en.wikipedia.org/wiki/Webserver_directory_index).
