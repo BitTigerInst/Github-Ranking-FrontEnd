@@ -13,9 +13,9 @@ To dynmically show the members' activities ranking in BitTiger's Github organiza
 ## Components
 This project consists of three components: 
 
-1.  A crawler digs members' public data and calculates their rankings. The results is stored in the persistence layer mentioned below.
-2.  A Firebase-powered persistence layer.
-3.  A front-end single-page app shows members' rankings from the persistence layer.
+1.  A crawler to dig the members' public data and calculates their rankings.
+2.  A Firebase-powered persistence layer for the results from the crawler.
+3.  A front-end single-page app to show the members' rankings from the persistence layer.
 
 > **This repository is for the front-end app.** Click [here](https://github.com/hackjustu/Github-Project-Dashboard) to see the crawler app.
 
@@ -104,6 +104,10 @@ We adopt [**Clash of Clans**](supercell.com/en/games/clashofclans/)'s medal syst
 ## License
 MIT © [hackjustu](https://github.com/hackjustu)
 
-## Project Information
+## Repository information
+- category: full stack
+- team: Fighting Falcon
+- description: A real-time ranking board for BitTiger's Github members.
+- stack: angular, firebase
 
 
