@@ -79,12 +79,12 @@ Users can sort the members by other order such as just `PushEvent` or `ForkEvent
 ## Medal System
 We adopt Clash of Clans's medal system for fun, beacasue I'm its big fan~~
 
-| Medal      |    Scores (Total) |
-| :--------: | :--------:| 
-| Champion   | > 100     |
-| Gold       | 50 - 100  |
-| Silver     | 20 - 50   |
-| Copper     | < 20      |
+| Medal     | Icon |   Scores (Total) |
+| :--------:| :--: | :--------:| 
+| Champion  |<img src="./resource/champion.png" height="35px" align="center"> | > 100     |
+| Gold      |<img src="./resource/gold.png" height="35px" align="center"> | 50 - 100  |
+| Silver    |<img src="./resource/silver.png" height="35px" align="center"> | 20 - 50   |
+| Bronze    |<img src="./resource/bronze.png" height="35px" align="center"> | < 20      |
 
 >**Note:** If you are **Super Cell** and feel unhappy about how your lovely medal icons are used here, please just let me know. I'm more than happy to change them.
 
@@ -96,14 +96,5 @@ We adopt Clash of Clans's medal system for fun, beacasue I'm its big fan~~
 MIT © [hackjustu](https://github.com/hackjustu)
 
 ## Project Information
-
-
-
-
-
-
-
-
-
 
 
