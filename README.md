@@ -105,6 +105,10 @@ We adopt [**Clash of Clans**](supercell.com/en/games/clashofclans/)'s medal syst
 |![Cosmo](http://i.imgur.com/m9UhjwU.jpg)|
 |[Cosmo](https://github.com/hackjustu)|
 
+## Acknowledgment
+- Project [Wukong](https://github.com/BitTigerInst/Gear) contributes the prototype for the backend github crawler.
+- [Freepik](http://www.freepik.com/) contributes several cool free images.
+
 ## License
 MIT © [Cosmo](https://github.com/hackjustu)
 
