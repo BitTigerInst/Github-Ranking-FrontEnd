@@ -1,0 +1,22 @@
+<board-container ng-controller="home_controller">
+
+    <!-- header -->
+    <ng-include src="'app/components/header/header.html'"></ng-include>
+
+    <div class='container'>
+
+        <!-- jumbotron -->
+        <ng-include src="'app/components/jumbotron/jumbotron.html'"></ng-include>
+
+        <!-- alert placeholder -->
+        <div id="alert_placeholder"></div>
+
+        <!-- ranking table -->
+        <ng-include src="'app/components/ranking_table/ranking_table.html'"></ng-include>
+
+    </div>
+
+    <!-- footer -->
+    <ng-include src="'app/components/footer/footer.html'"></ng-include>
+
+</board-container>

@@ -1,0 +1,22 @@
+.jumbotron {
+    background-color: #F4E6CB;
+}
+
+.dropdown-menu {
+    width: 100%;
+}
+
+.btn {
+    width: 100%;
+}
+
+list_update_info {
+    font-style: italic;
+    font-size: 85%;
+}
+
+@media only screen and (max-width: 765px) {
+    .big_logo {
+        height: 125px;
+    }
+}

@@ -1,16 +1,3 @@
-.dropdown-menu {
-    width: 100%;
-}
-
-.btn {
-    width: 100%;
-}
-
-list_update_info {
-    font-style: italic;
-    font-size: 85%;
-}
-
 th {
     text-align: center;
 }
@@ -20,42 +7,31 @@ td {
     color: dimgrey;
 }
 
-td.medal {
+.medal {
     width: 35px;
 }
 
 index {
+    padding: 3px;
     padding-left: 8px;
     padding-right: 5px;
-    padding-top: 3px;
-    padding-bottom: 3px;
     border-radius: 3px;
 }
 
-index.first {
+.first {
     background-color: #FFD700;
     color: aliceblue;
     text-shadow: 2px 2px 8px #D28C47;
 }
 
-index.second {
+.second {
     background-color: #E0E0E0;
     color: aliceblue;
     text-shadow: 2px 2px 8px #263238;
 }
 
-index.third {
+.third {
     background-color: #D28C47;
     color: aliceblue;
     text-shadow: 2px 2px 8px #263238;
-}
-
-.jumbotron {
-    background-color: #F4E6CB;
-}
-
-@media only screen and (max-width: 765px) {
-    img.big_logo {
-        height: 125px;
-    }
 }
