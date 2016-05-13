@@ -22,7 +22,7 @@ module.exports = function (grunt) {
             },
             typicons: {
                 expand: true,
-                cwd: 'bower_components/typicons/src/font/',
+                cwd: 'bower_components/typicons.font/src/font/',
                 src: ['typicons.*', '!*.css'],
                 dest: 'build/css/'
             }
