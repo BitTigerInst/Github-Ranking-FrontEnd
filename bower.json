@@ -1,0 +1,21 @@
+{
+  "name": "bittiger-ranking-frontend",
+  "description": "**太阁极客榜**（or **BitTiger Geeks Ranking**）is a real-time ranking board for BitTiger's Github members. Its results are based on members' Github activities in the past seven days with daily updates at **06:30 PDT**.",
+  "main": "index.html",
+  "authors": [
+    "Cosmo"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/hackjustu/Github-Ranking-FrontEnd",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-chart.js": "^0.10.2",
+    "typicons.font": "typicons#^2.0.7"
+  }
+}

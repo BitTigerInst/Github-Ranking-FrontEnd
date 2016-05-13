@@ -1,0 +1,37 @@
+th {
+    text-align: center;
+}
+
+td {
+    vertical-align: middle;
+    color: dimgrey;
+}
+
+.medal {
+    width: 35px;
+}
+
+index {
+    padding: 3px;
+    padding-left: 8px;
+    padding-right: 5px;
+    border-radius: 3px;
+}
+
+.first {
+    background-color: #FFD700;
+    color: aliceblue;
+    text-shadow: 2px 2px 8px #D28C47;
+}
+
+.second {
+    background-color: #E0E0E0;
+    color: aliceblue;
+    text-shadow: 2px 2px 8px #263238;
+}
+
+.third {
+    background-color: #D28C47;
+    color: aliceblue;
+    text-shadow: 2px 2px 8px #263238;
+}
