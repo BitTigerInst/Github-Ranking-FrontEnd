@@ -12,7 +12,7 @@ module.exports = function (grunt) {
             html: ['build/index.html']
         },
         copy: {
-            main: {
+            html: {
                 src: ['index.html', 'app/**/*.html'],
                 dest: 'build/'
             },
@@ -20,11 +20,11 @@ module.exports = function (grunt) {
                 src: ['assets/favicons/**.*', 'assets/img/**.*'],
                 dest: 'build/'
             },
-            typcions: {
+            typicons: {
                 expand: true,
-                cwd: 'assets/bower_components/typicons/src/font/',
-                src: ['typicons.*'],
-                dest: 'build/dist/css/'
+                cwd: 'bower_components/typicons/src/font/',
+                src: ['typicons.*', '!*.css'],
+                dest: 'build/css/'
             }
         },
         jshint: {
@@ -32,12 +32,14 @@ module.exports = function (grunt) {
         },
         csslint: {
             options: {
-                csslintrc: '.csslintrc'
+                csslintrc: 'grunt_configs/.csslintrc'
             },
             all: ['app/**/*.css']
-        }
+        },
+        clean: ['.tmp/', 'build/']
     });
 
+    grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-uglify');
@@ -49,8 +51,8 @@ module.exports = function (grunt) {
     grunt.registerTask('build', [
         'jshint',
         'csslint',
-        'copy:main',
-        'copy:typcions',
+        'copy:html',
+        'copy:typicons',
         'copy:assets',
         'useminPrepare',
         'concat',
@@ -58,4 +60,6 @@ module.exports = function (grunt) {
         'uglify',
         'usemin'
 	]);
+
+    grunt.registerTask('cleanAll', ['clean']);
 };
