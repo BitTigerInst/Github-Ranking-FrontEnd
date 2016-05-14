@@ -102,7 +102,7 @@ app.controller('home_controller', ['$scope', function ($scope) {
                 ticks: {
                     display: true,
                     reverse: true,
-                    suggestedMax: 15,
+                    suggestedMax: 25,
                     min: 1,
                 },
                 // grid line settings
