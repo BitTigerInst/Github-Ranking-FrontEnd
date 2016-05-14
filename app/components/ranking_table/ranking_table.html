@@ -14,7 +14,7 @@
         </thead>
         <tbody ng-cloak>
             <!-- No idea why vertical-align doesn't work when put in css, so I put the configs in each <td>. -->
-            <tr ng-repeat="member in members | orderBy:'-'+order">
+            <tr ng-repeat-start="member in members | orderBy:'-'+order" ng-click="expandCell(member)" ng-init="member.expanded=false">
 
                 <td align="left" style="vertical-align: middle;">
 
@@ -38,6 +38,22 @@
                 <td align="center" style="vertical-align: middle;">{{ member.CreateEvent }}</td>
                 <td align="center" style="vertical-align: middle;">{{ member.ForkEvent }}</td>
             </tr>
+
+            <tr class="details" ng-if="member.expanded" ng-repeat-end="">
+                <td colspan="8">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-xs-8 col-sm-6" style="margin-top: 20px">
+                                <canvas id="line" class="chart chart-line" chart-data="[member.rankings]" chart-legend="true" chart-labels="member.rankings_timestamps" chart-colors="color" chart-series="series" chart-options="options">
+                                </canvas>
+                            </div>
+                            <div class="col-xs-4 col-sm-6">
+                                敬请期待...
+                            </div>
+                        </div>
+                    </div>
+                </td>
+                </trcolor>
         </tbody>
     </table>
 </div>

@@ -15,7 +15,7 @@
     "tests"
   ],
   "dependencies": {
-    "angular-chart.js": "^0.10.2",
-    "typicons.font": "typicons#^2.0.7"
+    "typicons.font": "typicons#^2.0.7",
+    "Chart.js": "chartjs#^2.1.3"
   }
 }
