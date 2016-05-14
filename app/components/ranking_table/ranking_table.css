@@ -35,3 +35,11 @@ index {
     color: aliceblue;
     text-shadow: 2px 2px 8px #263238;
 }
+
+.ng-show {
+    height: 0;
+    width: 0;
+    background-color: transparent;
+    top: -200px;
+    left: 200px;
+}
