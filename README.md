@@ -15,8 +15,8 @@ By showing the Github members' activities in a game-style ranking board,  we can
 ## Components
 This project consists of three components: 
 
-1.  A crawler to dig the members' public data and calculates their rankings.
-2.  A Firebase-powered persistence layer for the results from the crawler.
+1.  A crawler to dig the members' public data and calculate their rankings.
+2.  A Firebase-powered persistence layer for the crawled data.
 3.  A front-end single-page app to show the members' rankings from the persistence layer.
 
 > **This repository is for the front-end app.** Click [here](https://github.com/hackjustu/Github-Project-Dashboard) to see the crawler app.
