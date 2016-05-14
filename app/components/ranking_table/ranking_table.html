@@ -14,7 +14,7 @@
         </thead>
         <tbody ng-cloak>
             <!-- No idea why vertical-align doesn't work when put in css, so I put the configs in each <td>. -->
-            <tr ng-class="{'active' : member.expanded }" ng-repeat-start="member in members | orderBy:'-'+order" ng-click="expandCell(member)" ng-init="member.expanded=false">
+            <tr ng-class="{'active' : member.expanded && order=='Total' }" ng-repeat-start="member in members | orderBy:'-'+order" ng-click="expandCell(member)" ng-init="member.expanded=false">
 
                 <td align="left" style="vertical-align: middle;">
 
@@ -27,7 +27,7 @@
                     </div>
                 </td>
 
-                <td><img ng-src="{{member.avatar_url}}" height="35px" style="margin-right: 10px"> {{ member.login }}</a>
+                <td><img ng-src="{{member.avatar_url + '&s=100'}}" height="35px" style="margin-right: 10px"> {{ member.login }}</a>
                 </td>
                 <td class="medal" ng-if="member.Total>=100" style="vertical-align: middle;"><img ng-src="assets/img/champion.png" height="30px" align="center"></td>
                 <td class="medal" ng-if="member.Total>=50 && member.Total<100" style="vertical-align: middle;"><img ng-src="assets/img/gold.png" height="35px" align="center"></td>
@@ -40,16 +40,16 @@
                 <td align="center" style="vertical-align: middle;">{{ member.ForkEvent }}</td>
             </tr>
 
-            <tr class="clickable-row details slide" ng-if="member.expanded" ng-repeat-end="">
+            <tr class="clickable-row details" ng-if="member.expanded && order=='Total'" ng-repeat-end="">
                 <td colspan="8">
                     <div class="container-fluid">
                         <div class="row">
-                            <div class="col-xs-8 col-sm-6" style="margin-top: 20px">
+                            <div class="col-xs-7 col-sm-6" style="margin-top: 20px">
                                 <canvas id="line" class="chart chart-line" chart-data="[member.rankings]" chart-legend="true" chart-labels="member.rankings_timestamps" chart-colors="color" chart-series="series" chart-options="options">
                                 </canvas>
                                 <a ng-href="{{member.html_url}}"><img ng-src="assets/img/GitHub_Logo.png" style="height:28px; position: absolute; bottom: 5px; right: 20px;"></a>
                             </div>
-                            <div class="col-xs-4 col-sm-6 ">
+                            <div class="col-xs-5 col-sm-6 ">
                                 敬请期待...
                             </div>
                         </div>
