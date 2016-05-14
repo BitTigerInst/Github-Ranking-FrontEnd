@@ -59,7 +59,6 @@ app.controller('home_controller', ['$scope', function ($scope) {
                 member.rankings_timestamps.push(ranking_history[j].timestamp.slice(5, 10).replace('-', '/'));
             }
         }
-
         member.expanded = !member.expanded;
     };
 

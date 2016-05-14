@@ -1,1 +1,1 @@
-var app = angular.module('ranking_board', ['chart.js']);
+var app = angular.module('ranking_board', ['chart.js', 'ngAnimate']);

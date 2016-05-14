@@ -35,3 +35,12 @@ index {
     color: aliceblue;
     text-shadow: 2px 2px 8px #263238;
 }
+
+.slide.ng-enter {
+    transition: 0.2s linear all;
+    transform: translateY(-15%);
+}
+
+.slide.ng-enter.ng-enter-active {
+    transform: translateY(0);
+}
