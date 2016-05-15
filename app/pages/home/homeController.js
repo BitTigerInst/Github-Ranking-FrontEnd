@@ -3,16 +3,22 @@ app.controller('home_controller', ['$scope', function ($scope) {
     // For firebase initialization and date updates
     var FirebaseRef = new Firebase("https://bittiger-ranking.firebaseio.com/");
     var first_launch = true;
+    $scope.total_contribution = 0;
     FirebaseRef.child('user_events').on("value", function (snapshot) {
 
             $scope.members = snapshot.val().events;
             $scope.list_created_time = snapshot.val().created_time;
-            $scope.$apply();
 
             if (!first_launch) {
                 bootstrap_alert('Ranking is just updated at ' + $scope.list_created_time);
             }
             first_launch = false;
+
+            for (var i = 0; i < $scope.members.length; i++) {
+                $scope.total_contribution += $scope.members[i].Total;
+            }
+            console.log($scope.total_contribution);
+            $scope.$apply();
         },
         function (errorObject) {
             console.log("The read failed: " + errorObject.code);
@@ -45,9 +51,8 @@ app.controller('home_controller', ['$scope', function ($scope) {
         });
     };
 
-    // testing area
+    // graph configurations
     $scope.series = ['Ranking'];
-
     $scope.expandCell = function (member) {
 
         if (!member.rankings || !member.rankings_timestamps) {
@@ -55,20 +60,59 @@ app.controller('home_controller', ['$scope', function ($scope) {
             member.rankings = [];
             member.rankings_timestamps = [];
             for (var j = 0; j < ranking_history.length; j++) {
+
                 member.rankings.push(ranking_history[j].ranking);
-                member.rankings_timestamps.push(ranking_history[j].timestamp.slice(5, 10).replace('-', '/'));
+                if (j % 5 === 0) {
+                    var sliced_timestamp = ranking_history[j]
+                        .timestamp.slice(5, 10)
+                        .replace('-', '/')
+                        .replace('/0', '/');
+                    if (sliced_timestamp.startsWith('0')) {
+                        //                        member.rankings_timestamps.push(sliced_timestamp.slice(1, 5));
+                    } else {
+                        //                        member.rankings_timestamps.push(sliced_timestamp);
+                    }
+                    member.rankings_timestamps.push("");
+
+                } else {
+                    member.rankings_timestamps.push("");
+
+                }
             }
         }
+        should_calculate_total_contribution = false;
         member.expanded = !member.expanded;
     };
 
-    $scope.color = [{ // default
+    $scope.colors = [{
         "fillColor": "rgba(0, 0, 0, 1)",
         "backgroundColor": "rgba(0,0,0,0)",
-        "borderColor": "rgba(75,192,192,1)"
+        "borderColor": "rgba(210, 74, 62, 1)"
         }];
 
-    $scope.options = {
+    var red_border = [{
+        "fillColor": "rgba(0, 0, 0, 1)",
+        "backgroundColor": "rgba(0,0,0,0)",
+        "borderColor": "rgba(210,74,62,1)"
+        }];
+
+    var green_border = [{
+        "fillColor": "rgba(0, 0, 0, 1)",
+        "backgroundColor": "rgba(0,0,0,0)",
+        "borderColor": "rgba(46,125,50,1)"
+        }];
+
+
+    $scope.get_chart_color = function (ranking_change) {
+
+        if (ranking_change <= 0) {
+            return green_border;
+        }
+
+        return red_border;
+    };
+
+    $scope.line_options = {
         responsive: true,
         hoverMode: 'label',
         fill: false,
@@ -81,8 +125,12 @@ app.controller('home_controller', ['$scope', function ($scope) {
             },
         },
         legend: {
-            display: true,
-            position: 'bottom'
+            display: false,
+            position: 'bottom',
+            labels: {
+                boxWidth: 20,
+                fontSize: 10
+            }
         },
 
         scales: {
@@ -101,7 +149,7 @@ app.controller('home_controller', ['$scope', function ($scope) {
                 ticks: {
                     display: true,
                     reverse: true,
-                    suggestedMax: 25,
+                    suggestedMax: 20,
                     min: 1,
                 },
                 // grid line settings
@@ -110,7 +158,39 @@ app.controller('home_controller', ['$scope', function ($scope) {
                 }
             }],
         }
+        //        annotation: {
+        //            annotations: [{
+        //                type: 'line',
+        //                mode: 'horizontal',
+        //                scaleID: 'y-axis',
+        //                value: '5',
+        //                borderColor: '#ECEFF1',
+        //                borderWidth: 2
+        //        }]
+        //        }
     };
+
+    $scope.pie_options = {
+        responsive: true,
+        animation: {
+
+        },
+        elements: {
+            line: {
+                borderWidth: 0
+            },
+        },
+        legend: {
+            display: true,
+            position: 'bottom',
+            labels: {
+                boxWidth: 10,
+                fontSize: 10
+            }
+        }
+    };
+
+    $scope.pie_colors = ['#FD1F5E', '#64CEAA'];
 }]);
 
 function make_range(start, end) {
