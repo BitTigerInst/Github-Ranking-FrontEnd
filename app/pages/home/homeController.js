@@ -13,11 +13,6 @@ app.controller('home_controller', ['$scope', function ($scope) {
                 bootstrap_alert('Ranking is just updated at ' + $scope.list_created_time);
             }
             first_launch = false;
-
-            for (var i = 0; i < $scope.members.length; i++) {
-                $scope.total_contribution += $scope.members[i].Total;
-            }
-            console.log($scope.total_contribution);
             $scope.$apply();
         },
         function (errorObject) {
@@ -54,6 +49,12 @@ app.controller('home_controller', ['$scope', function ($scope) {
     // graph configurations
     $scope.series = ['Ranking'];
     $scope.expandCell = function (member) {
+
+        if ($scope.total_contribution === 0) {
+            for (var i = 0; i < $scope.members.length; i++) {
+                $scope.total_contribution += $scope.members[i].Total;
+            }
+        }
 
         if (!member.rankings || !member.rankings_timestamps) {
             var ranking_history = member.ranking_history;
