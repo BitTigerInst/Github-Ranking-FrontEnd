@@ -93,17 +93,19 @@ We compare `Total`, `PushEvent`, `PullRequestEvent`, `CreateEvent` and `ForkEven
 Users can sort the members by other order such as just `PushEvent` or `ForkEvent`, but we use the ranking of `Total` for our medal system in the next section.
 
 ## Medal System
-We adopt [**Clash of Clans**](supercell.com/en/games/clashofclans/)'s medal system for fun, beacasue we love the game~~
+We adopt a medal system for fun, beacasue we love gaming~~
 
 | Medal     | Icon |   Scores (Total) |
 | :--------:| :--: | :--------:| 
-| Champion  |<img src="./assets/img/champion.png" height="35px" align="center"> | > 100     |
-| Gold      |<img src="./assets/img/gold.png" height="35px" align="center"> | 50 - 100  |
-| Silver    |<img src="./assets/img/silver.png" height="35px" align="center"> | 20 - 50   |
-| Bronze    |<img src="./assets/img/bronze.png" height="35px" align="center"> | < 20      |
+| Gold      |<img src="./assets/img/gold_medal.png" height="35px" align="center"> | > 49  |
+| Silver    |<img src="./assets/img/silver_medal.png" height="35px" align="center"> | 20 - 49   |
+| Bronze    |<img src="./assets/img/bronze_medal.png" height="35px" align="center"> | < 20      |
 
->**Note:** If you are **Super Cell** and feel unhappy about how your lovely medal icons are used here, please just let me know. I'm more than happy to change them.
-
+## To Do List
+- [ ] More stylish medal icons (We need a designer...)
+- [ ] Integration into BitTiger/Wukong system
+- [ ] Achievement system
+- [ ] Better crawler for more user/repository information
 
 ## Team Members
 ||
