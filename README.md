@@ -101,6 +101,12 @@ We adopt a medal system for fun, beacasue we love gaming~~
 | Silver    |<img src="./assets/img/silver_medal.png" height="35px" align="center"> | 20 - 49   |
 | Bronze    |<img src="./assets/img/bronze_medal.png" height="35px" align="center"> | < 20      |
 
+## To Do List
+- [ ] More stylish medal icons (We need a designer...)
+- [ ] Integration into BitTiger/Wukong system
+- [ ] Achievement system
+- [ ] Better crawler for more user/repository information
+
 ## Team Members
 ||
 |:--:|
