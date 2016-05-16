@@ -17,7 +17,12 @@ module.exports = function (grunt) {
                 dest: 'build/'
             },
             assets: {
-                src: ['assets/favicons/**.*', 'assets/img/**.*'],
+                src: ['assets/favicons/**.*',
+                        'assets/img/github.png',
+                        'assets/img/bronze_medal.png',
+                        'assets/img/silver_medal.png',
+                        'assets/img/gold_medal.png',
+                        'assets/img/viking.png'],
                 dest: 'build/'
             },
             typicons: {

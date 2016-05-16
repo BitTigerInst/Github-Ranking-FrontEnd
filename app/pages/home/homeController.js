@@ -94,7 +94,7 @@ app.controller('home_controller', ['$scope', function ($scope) {
     var red_border = [{
         "fillColor": "rgba(0, 0, 0, 1)",
         "backgroundColor": "rgba(0,0,0,0)",
-        "borderColor": "rgba(210,74,62,1)"
+        "borderColor": "rgba(210, 74, 62, 1)"
         }];
 
     var green_border = [{

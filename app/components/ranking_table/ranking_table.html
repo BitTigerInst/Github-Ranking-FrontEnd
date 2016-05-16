@@ -29,10 +29,10 @@
 
                 <td><img ng-src="{{member.avatar_url + '&s=100'}}" height="35px" style="margin-right: 10px"> {{ member.login }}</a>
                 </td>
-                <td class="medal" ng-if="member.Total>=100" style="vertical-align: middle;"><img ng-src="assets/img/champion.png" height="30px" align="center"></td>
-                <td class="medal" ng-if="member.Total>=50 && member.Total<100" style="vertical-align: middle;"><img ng-src="assets/img/gold.png" height="35px" align="center"></td>
-                <td class="medal" ng-if="member.Total>=20 && member.Total<50" style="vertical-align: middle;"><img ng-src="assets/img/silver.png" height="30px" align="center"></td>
-                <td class="medal" ng-if="member.Total<20" style="vertical-align: middle;"><img ng-src="assets/img/bronze.png" height="30px" align="center"></td>
+                <td class="medal" ng-if="member.Total>=100" style="vertical-align: middle;"><img ng-src="assets/img/gold_medal.png" height="27px" align="center"></td>
+                <td class="medal" ng-if="member.Total>=50 && member.Total<100" style="vertical-align: middle;"><img ng-src="assets/img/gold_medal.png" height="27px" align="center"></td>
+                <td class="medal" ng-if="member.Total>=20 && member.Total<50" style="vertical-align: middle;"><img ng-src="assets/img/silver_medal.png" height="27px" align="center"></td>
+                <td class="medal" ng-if="member.Total<20" style="vertical-align: middle;"><img ng-src="assets/img/bronze_medal.png" height="27px" align="center"></td>
                 <td align="center" style="vertical-align: middle;"><b>{{ member.Total }}</b></td>
                 <td align="center" style="vertical-align: middle;">{{ member.PushEvent }}</td>
                 <td align="center" style="vertical-align: middle;">{{ member.PullRequestEvent }}</td>
@@ -63,3 +63,4 @@
         </tbody>
     </table>
     </div>
+    <div style="text-align:right;font-size: 75%"><a href="http://www.freepik.com"><u><i>Medals designed by Freepik</i></u></a></div>
