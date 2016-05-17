@@ -1,6 +1,6 @@
 app.controller('home_controller', ['$scope', function ($scope) {
 
-    $scope.octcocat_index = Math.floor((Math.random() * 9) + 1); // 1~9
+    $scope.octcocat_index = Math.floor((Math.random() * 15) + 1); // 1~15
     console.log($scope.octcocat_index);
 
     // For firebase initialization and date updates
