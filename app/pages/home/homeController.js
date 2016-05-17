@@ -1,5 +1,8 @@
 app.controller('home_controller', ['$scope', function ($scope) {
 
+    $scope.octcocat_index = Math.floor((Math.random() * 9) + 1); // 1~9
+    console.log($scope.octcocat_index);
+
     // For firebase initialization and date updates
     var FirebaseRef = new Firebase("https://bittiger-ranking.firebaseio.com/");
     var first_launch = true;

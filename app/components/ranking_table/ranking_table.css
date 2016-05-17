@@ -12,7 +12,7 @@ tbody tr td.normal {
     text-align: center;
 }
 
-tbody tr td.left_cell {
+table tr th.left_cell {
     text-align: left;
 }
 

@@ -14,13 +14,13 @@
         </thead>
         <tbody ng-cloak>
             <tr ng-class="{'active' : member.expanded && order=='Total' }" ng-repeat-start="member in members | orderBy:'-'+order" ng-click="expandCell(member)" ng-init="member.expanded=false">
-                <td class="normal left_cell">
+                <td class="normal" style="text-align:left;">
                     <div>
                         <index ng-class="{ 'first' : $index==0, 'second' : $index==1, 'third' : $index==2 }"><b><i>{{ $index + 1 }}.</i></b></index>
-                        <span ng-if=" member.ranking_change < 0 && order=='Total' " class="typcn typcn-arrow-up-thick " style="color:#2E7D32;"><b>{{ -member.ranking_change }}</b></span>
-                        <span ng-if="member.ranking_change==0 && order=='Total' " class="typcn typcn-equals " style="color:#FFB300;"></span>
-                        <span ng-if="member.ranking_change> 0 && order == 'Total'" class="typcn typcn-arrow-down-thick" style="color:#B71C1C;"><b>{{ member.ranking_change }}</b></span>
-                        <span ng-if="member.ranking_change=='new' && order == 'Total'" style="color:#2196F3;"><b>new</b></span>
+                        <span ng-if=" member.ranking_change<0 && order=='Total' " class="typcn typcn-arrow-up-thick " style="color:#2E7D32;"><b>{{ -member.ranking_change }}</b></span>
+                        <span ng-if="member.ranking_change==0 && order=='Total'" class="typcn typcn-equals " style="color:#FFB300;"></span>
+                        <span ng-if="member.ranking_change>0 && order=='Total'" class="typcn typcn-arrow-down-thick" style="color:#B71C1C;"><b>{{ member.ranking_change }}</b></span>
+                        <span ng-if="member.ranking_change=='new' && order=='Total'" style="color:#2196F3;"><b>new</b></span>
                     </div>
                 </td>
 
@@ -41,7 +41,7 @@
                             <div class="col-xs-6 col-sm-6" style="margin-top: 10px">
                                 <canvas id="line" class="chart chart-line" chart-data="[member.rankings]" chart-legend="true" chart-labels="member.rankings_timestamps" chart-colors="get_chart_color(member.ranking_change);" chart-series="series" chart-options="line_options">
                                 </canvas>
-                                <a ng-href="{{member.html_url}}"><img ng-src="assets/img/github.png" style="height:13px; position: absolute; bottom: 5px; left: 18px;"></a>
+                                <a ng-href="{{ member.html_url }}"><img class="github_entry" ng-src="assets/img/github.png"></a>
                                 <div class="line_chart_title"><i><b>Ranking History</b></i>
                                 </div>
                             </div>
@@ -52,9 +52,10 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
                 </td>
             </tr>
         </tbody>
     </table>
-    </div>
-    <div class="medal_acknowledgement"><a href="http://www.freepik.com"><u><i>Medals designed by Freepik</i></u></a></div>
+</div>
+<div class="medal_acknowledgement"><a href="http://www.freepik.com"><u><i>Medals designed by Freepik</i></u></a></div>
