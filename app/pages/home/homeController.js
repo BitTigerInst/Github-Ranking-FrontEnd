@@ -36,6 +36,7 @@ app.controller('home_controller', ['$scope', function ($scope) {
         return 'success';
     };
 
+    // For database update alert
     bootstrap_alert = function (message) {
 
         angular.element('#alert_placeholder').html('<div class="alert alert-success" id="success-alert"><button type="button" class="close" data-dismiss="alert">x</button><strong>Updated! </strong> Ranking has been updated at ' + $scope.list_created_time + ' LoL</div>');
@@ -44,6 +45,19 @@ app.controller('home_controller', ['$scope', function ($scope) {
             angular.element("#success-alert").alert('close');
             angular.element("#success-alert").replaceWith(divClone.clone());
         });
+    };
+
+    // For getting medal category
+    $scope.get_medal = function (score) {
+        var medal = "bronze";
+
+        if (score >= 50) {
+            medal = "gold";
+        } else if (score >= 20) {
+            medal = "silver";
+        }
+
+        return medal;
     };
 
     // graph configurations
