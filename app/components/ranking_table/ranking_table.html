@@ -39,14 +39,14 @@
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-xs-6 col-sm-6" style="margin-top: 10px">
-                                <canvas id="line" class="chart chart-line" chart-data="[member.rankings]" chart-legend="true" chart-labels="member.rankings_timestamps" chart-colors="get_chart_color(member.ranking_change);" chart-series="series" chart-options="line_options">
+                                <canvas id="line" class="chart chart-line" chart-data="[member.rankings]" chart-legend="true" chart-labels="member.rankings_timestamps" chart-colors="get_line_color(member.ranking_change);" chart-series="series" chart-options="line_options">
                                 </canvas>
                                 <a ng-href="{{ member.html_url }}"><img class="github_entry" ng-src="assets/img/github.png"></a>
                                 <div class="line_chart_title"><i><b>Ranking History</b></i>
                                 </div>
                             </div>
                             <div class="col-xs-6 col-sm-6 " style="margin-top: 5px">
-                                <canvas id="pie" class=" chart chart-pie " chart-data="[member.Total, total_contribution-member.Total] " chart-labels="[member.login, 'Others\' Contributions'] " chart-colors="pie_colors " chart-options="pie_options ">
+                                <canvas id="pie" class=" chart chart-doughnut" chart-data="[member.Total, total_contribution-member.Total] " chart-labels="[member.login, 'Others\' Contributions'] " chart-colors="doughnut_colors " chart-options="doughnut_options ">
                                 </canvas>
                                 <div class="pie_chart_title"><i><b>Top 25 <br>Contributions</b></i>
                                 </div>

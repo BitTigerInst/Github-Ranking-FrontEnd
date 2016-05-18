@@ -102,12 +102,6 @@ app.controller('home_controller', ['$scope', function ($scope) {
         member.expanded = !member.expanded;
     };
 
-    $scope.colors = [{
-        "fillColor": "rgba(0, 0, 0, 1)",
-        "backgroundColor": "rgba(0,0,0,0)",
-        "borderColor": "rgba(210, 74, 62, 1)"
-        }];
-
     var red_border = [{
         "fillColor": "rgba(0, 0, 0, 1)",
         "backgroundColor": "rgba(0,0,0,0)",
@@ -121,7 +115,7 @@ app.controller('home_controller', ['$scope', function ($scope) {
         }];
 
 
-    $scope.get_chart_color = function (ranking_change) {
+    $scope.get_line_color = function (ranking_change) {
 
         if (ranking_change <= 0) {
             return green_border;
@@ -188,13 +182,13 @@ app.controller('home_controller', ['$scope', function ($scope) {
         //        }
     };
 
-    $scope.pie_options = {
+    $scope.doughnut_options = {
         responsive: true,
         animation: {
 
         },
         elements: {
-            line: {
+            arc: {
                 borderWidth: 0
             },
         },
@@ -208,7 +202,7 @@ app.controller('home_controller', ['$scope', function ($scope) {
         }
     };
 
-    $scope.pie_colors = ['#FD1F5E', '#64CEAA'];
+    $scope.doughnut_colors = ['#FD1F5E', '#64CEAA'];
 }]);
 
 function make_range(start, end) {
