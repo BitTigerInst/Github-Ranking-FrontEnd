@@ -7,8 +7,32 @@ td {
     color: dimgrey;
 }
 
+tbody tr td.normal {
+    vertical-align: middle;
+    text-align: center;
+}
+
+table tr th.left_cell {
+    text-align: left;
+}
+
+.profile {
+    height: 35px;
+    margin-right: 10px;
+}
+
 .medal {
-    width: 35px;
+    height: 27px;
+}
+
+.medal_acknowledgement {
+    text-align: right;
+    font-size: 75%;
+}
+
+.typcn {
+    font-size: 70%;
+    padding-left: 2px;
 }
 
 index {
@@ -34,4 +58,27 @@ index {
     background-color: #D28C47;
     color: aliceblue;
     text-shadow: 2px 2px 8px #263238;
+}
+
+.github_entry {
+    height: 13px;
+    position: absolute;
+    bottom: 5px;
+    left: 18px;
+}
+
+.line_chart_title {
+    font-size: 80%;
+    height: 20px;
+    position: absolute;
+    bottom: 0px;
+    right: 10px;
+}
+
+.pie_chart_title {
+    font-size: 70%;
+    height: 20px;
+    position: absolute;
+    top: 0px;
+    right: 10px;
 }

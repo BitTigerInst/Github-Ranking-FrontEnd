@@ -2,10 +2,9 @@
     <div class='col-lg-12'>
         <div class='bs-component'>
             <div class='jumbotron'>
-                <h1><b>太阁极客榜</b></h1>
-                <figure style="position: absolute; top: 10px; right: 30px;">
-                    <img class="big_logo" height="265px" ng-src="assets/img/viking.png">
-                    <figcaption style="font-size:40%; text-align:right"><a href="http://www.freepik.com"><i>Designed by Freepik</i></a></figcaption>
+                <h1><font style="font-size: 110%; font-style:bold;">太阁极客榜</font></h1>
+                <figure style="position: absolute; top: 10px; right: 15px;">
+                    <a href="https://github.com/hackjustu/Github-Ranking-FrontEnd"><img class="big_logo" height="280px" ng-src="assets/img/octocat_{{ octcocat_index }}.png"></a>
                 </figure>
                 <p>
                     <b><i>Top 25</i></b> Github geeks!
@@ -22,10 +21,15 @@
                             </ul>
                         </div>
                     </div>
+                    </p>
                 </div>
                 <list_update_info>Updated at: {{list_created_time}}</list_update_info>
                 <a class="typcn typcn-document-text" data-toggle="modal" data-target="#myModal"></a>
 
+                <div>
+                    <p class="github_disclaimer" style="font-size:50%; text-align:center"><i>Not an official GitHub site.</i></a>
+
+                </div>
                 <!-- Modal -->
                 <div class="modal fade" id="myModal" role="dialog">
                     <div class="modal-dialog">

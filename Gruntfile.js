@@ -18,6 +18,7 @@ module.exports = function (grunt) {
             },
             assets: {
                 src: ['assets/favicons/**.*',
+                        'assets/img/octocat_*.png',
                         'assets/img/github.png',
                         'assets/img/bronze_medal.png',
                         'assets/img/silver_medal.png',

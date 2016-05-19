@@ -2,8 +2,8 @@
     <table class="table">
         <thead>
             <tr>
-                <th style="text-align : left">#</th>
-                <th style="text-align : left">Name</th>
+                <th class="left_cell">#</th>
+                <th class="left_cell">Name</th>
                 <th>Medal</th>
                 <th>Total</th>
                 <th>Push</th>
@@ -13,31 +13,25 @@
             </tr>
         </thead>
         <tbody ng-cloak>
-            <!-- No idea why vertical-align doesn't work when put in css, so I put the configs in each <td>. -->
             <tr ng-class="{'active' : member.expanded && order=='Total' }" ng-repeat-start="member in members | orderBy:'-'+order" ng-click="expandCell(member)" ng-init="member.expanded=false">
-
-                <td align="left" style="vertical-align: middle">
-
+                <td class="normal" style="text-align:left;">
                     <div>
                         <index ng-class="{ 'first' : $index==0, 'second' : $index==1, 'third' : $index==2 }"><b><i>{{ $index + 1 }}.</i></b></index>
-                        <span ng-if=" member.ranking_change < 0 && order=='Total' " class="typcn typcn-arrow-up-thick " style="font-size: 70%; color:#2E7D32; padding-left: 2px;"><b>{{ -member.ranking_change }}</b></span>
-                        <span ng-if="member.ranking_change==0 && order=='Total' " class="typcn typcn-equals " style="font-size: 70%; color:#FFB300; padding-left: 2px;"></span>
-                        <span ng-if="member.ranking_change> 0 && order == 'Total'" class="typcn typcn-arrow-down-thick" style="font-size: 70%; color:#B71C1C; padding-left: 2px;"><b>{{ member.ranking_change }}</b></span>
-                        <span ng-if="member.ranking_change=='new' && order == 'Total'" style="font-size: 70%; color:#2196F3; padding-left: 2px;"><b>new</b></span>
+                        <span ng-if=" member.ranking_change<0 && order=='Total' " class="typcn typcn-arrow-up-thick " style="color:#2E7D32;"><b>{{ -member.ranking_change }}</b></span>
+                        <span ng-if="member.ranking_change==0 && order=='Total'" class="typcn typcn-equals " style="color:#FFB300;"></span>
+                        <span ng-if="member.ranking_change>0 && order=='Total'" class="typcn typcn-arrow-down-thick" style="color:#B71C1C;"><b>{{ member.ranking_change }}</b></span>
+                        <span ng-if="member.ranking_change=='new' && order=='Total'" style="color:#2196F3;"><b>new</b></span>
                     </div>
                 </td>
 
-                <td><img ng-src="{{member.avatar_url + '&s=100'}}" height="35px" style="margin-right: 10px"> {{ member.login }}</a>
+                <td><img class="profile" ng-src="{{member.avatar_url + '&s=100'}}"> {{ member.login }}</a>
                 </td>
-                <td class="medal" ng-if="member.Total>=100" style="vertical-align: middle;"><img ng-src="assets/img/gold_medal.png" height="27px" align="center"></td>
-                <td class="medal" ng-if="member.Total>=50 && member.Total<100" style="vertical-align: middle;"><img ng-src="assets/img/gold_medal.png" height="27px" align="center"></td>
-                <td class="medal" ng-if="member.Total>=20 && member.Total<50" style="vertical-align: middle;"><img ng-src="assets/img/silver_medal.png" height="27px" align="center"></td>
-                <td class="medal" ng-if="member.Total<20" style="vertical-align: middle;"><img ng-src="assets/img/bronze_medal.png" height="27px" align="center"></td>
-                <td align="center" style="vertical-align: middle;"><b>{{ member.Total }}</b></td>
-                <td align="center" style="vertical-align: middle;">{{ member.PushEvent }}</td>
-                <td align="center" style="vertical-align: middle;">{{ member.PullRequestEvent }}</td>
-                <td align="center" style="vertical-align: middle;">{{ member.CreateEvent }}</td>
-                <td align="center" style="vertical-align: middle;">{{ member.ForkEvent }}</td>
+                <td class="normal"><img class="medal" ng-src="assets/img/{{ get_medal(member.Total) }}_medal.png"></td>
+                <td class="normal"><b>{{ member.Total }}</b></td>
+                <td class="normal">{{ member.PushEvent }}</td>
+                <td class="normal">{{ member.PullRequestEvent }}</td>
+                <td class="normal">{{ member.CreateEvent }}</td>
+                <td class="normal">{{ member.ForkEvent }}</td>
             </tr>
 
             <tr class="clickable-row details" ng-if="member.expanded && order=='Total'" ng-repeat-end="">
@@ -45,22 +39,23 @@
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-xs-6 col-sm-6" style="margin-top: 10px">
-                                <canvas id="line" class="chart chart-line" chart-data="[member.rankings]" chart-legend="true" chart-labels="member.rankings_timestamps" chart-colors="get_chart_color(member.ranking_change);" chart-series="series" chart-options="line_options">
+                                <canvas id="line" class="chart chart-line" chart-data="[member.rankings]" chart-legend="true" chart-labels="member.rankings_timestamps" chart-colors="get_line_color(member.ranking_change);" chart-series="series" chart-options="line_options">
                                 </canvas>
-                                <a ng-href="{{member.html_url}}"><img ng-src="assets/img/github.png" style="height:13px; position: absolute; bottom: 5px; left: 18px;"></a>
-                                <div style="font-size:80% ;height:20px; position: absolute; bottom: 0px; right: 10px;"><i><b>Ranking History</b></i>
+                                <a ng-href="{{ member.html_url }}"><img class="github_entry" ng-src="assets/img/github.png"></a>
+                                <div class="line_chart_title"><i><b>Ranking History</b></i>
                                 </div>
                             </div>
                             <div class="col-xs-6 col-sm-6 " style="margin-top: 5px">
-                                <canvas id="pie" class=" chart chart-pie " chart-data="[member.Total, total_contribution-member.Total] " chart-labels="[member.login, 'Others\' Contributions'] " chart-colors="pie_colors " chart-options="pie_options ">
+                                <canvas id="pie" class=" chart chart-doughnut" chart-data="[member.Total, total_contribution-member.Total] " chart-labels="[member.login, 'Others\' Contributions'] " chart-colors="doughnut_colors " chart-options="doughnut_options ">
                                 </canvas>
-                                <div style="font-size:70% ;height:20px; position: absolute; top: 0px; right: 10px;"><i><b>Top 25 <br>Contributions</b></i>
+                                <div class="pie_chart_title"><i><b>Top 25 <br>Contributions</b></i>
                                 </div>
                             </div>
                         </div>
+                    </div>
                 </td>
             </tr>
         </tbody>
     </table>
-    </div>
-    <div style="text-align:right;font-size: 75%"><a href="http://www.freepik.com"><u><i>Medals designed by Freepik</i></u></a></div>
+</div>
+<div class="medal_acknowledgement"><a href="http://www.freepik.com"><u><i>Medals designed by Freepik</i></u></a></div>

@@ -15,8 +15,14 @@ list_update_info {
     font-size: 85%;
 }
 
+.github_disclaimer {
+    position: absolute;
+    bottom: 0px;
+    right: 25px;
+}
+
 @media only screen and (max-width: 765px) {
     .big_logo {
-        height: 125px;
+        height: 140px;
     }
 }
